@@ -30,3 +30,8 @@ Route::get('/bonjour/{prenom}', function () {
         'prenom' => $prenom,
     ]);
 });
+
+Route::post('/inscription', function(){
+    return 'Votre mail est ' . $_POST['email'];
+//    return 'Votre mail est ' . request('email');
+});
