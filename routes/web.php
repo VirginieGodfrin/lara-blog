@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+// var : parametre get
+Route::get('/bonjour/{prenom}', function () {
+    // var : dans la fonction annonyme
+    $prenom = request('prenom');
+    return view('bonjour', [
+        // var : dans la vue
+        'prenom' => $prenom,
+    ]);
+});
