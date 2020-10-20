@@ -70,5 +70,22 @@ Route::get('user/{$id}/profile', function () {
     //
 })->name('profile');
 
-
 Route::get('user/profile', [UserProfileController::class, 'show'])->name('profile');
+
+
+//Route::middleware(['first', 'second'])->group(function () {
+//    Route::get('/', function () {
+//        // Uses first & second middleware...
+//    });
+//
+//    Route::get('user/profile', function () {
+//        // Uses first & second middleware...
+//    });
+//});
+
+Route::prefix('admin')->group(function () {
+    Route::get('users', function () {
+        // Matches The "/admin/users" URL
+        return 'Hello admin user profile';
+    });
+});
