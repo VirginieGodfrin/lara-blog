@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Controller;
+
 
 
 /*
@@ -86,6 +86,12 @@ Route::get('user/profile', [UserProfileController::class, 'show'])->name('profil
 Route::prefix('admin')->group(function () {
     Route::get('users', function () {
         // Matches The "/admin/users" URL
+        $route = Route::current();
+        dump($route);
+        $name = Route::currentRouteName();
+        dump($name);
+//        $action = Route::currentRouteAction();
+//        dump($action);
         return 'Hello admin user profile';
     });
 });
