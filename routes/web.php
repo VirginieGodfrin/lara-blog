@@ -60,3 +60,15 @@ Route::get('/user/{name}', function($name){
 Route::get('user/{id}/{name}', function ($id, $name) {
     return 'User '.$name.'-'.$id;
 });
+
+Route::get('search/{search}', function ($search) {
+    return $search;
+})->where('search', '.*');
+
+// Named route
+Route::get('user/{$id}/profile', function () {
+    //
+})->name('profile');
+
+
+Route::get('user/profile', [UserProfileController::class, 'show'])->name('profile');
